@@ -37,7 +37,6 @@
           <a href="#home" class="nav-link active">Domov</a>
           <a href="#sluzby" class="nav-link">Služby</a>
           <a href="#realizacie" class="nav-link">Realizácie</a>
-          <a href="#o-nas" class="nav-link">O nás</a>
           <a href="#oblast-pusobenia" class="nav-link">Oblasti pôsobenia</a>
           <a href="#kontakt" class="nav-link">Kontakt</a>
         </nav>
@@ -166,8 +165,8 @@
           <!-- Кожен елемент галереї доступний з клавіатури та поводиться як
             кнопка. data-src зберігає джерело для збільшеного перегляду. -->
           <div class="project-gallery" aria-label="Galéria realizácií">
-            <div class="gallery-item large" data-src="images/Ukážky2.jpg" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 1">
-              <img src="images/Ukážky2.jpg" alt="Interiér po rekonštrukcii" loading="lazy" />
+            <div class="gallery-item large gallery-video">
+              <video src="images/movies.MP4" controls autoplay muted loop playsinline preload="metadata" aria-label="Video z našej práce"></video>
             </div>
 
             <div class="gallery-stack">
@@ -181,6 +180,18 @@
                 <img src="images/Ukážky5.jpg" alt="Schodisko po omietkach" loading="lazy" />
               </div>
             </div>
+          </div>
+
+          <div class="gallery-hidden" hidden aria-hidden="true">
+            <div class="gallery-item" data-src="images/Ukážky2.jpg" data-featured="true"><img src="images/Ukážky2.jpg" alt="Interiér po rekonštrukcii" /></div>
+            <div class="gallery-item" data-src="images/Galareja1.jpg"><img src="images/Galareja1.jpg" alt="Realizácia 5" /></div>
+            <div class="gallery-item" data-src="images/Galareja2.jpg"><img src="images/Galareja2.jpg" alt="Realizácia 6" /></div>
+            <div class="gallery-item" data-src="images/Galareja3.jpg"><img src="images/Galareja3.jpg" alt="Realizácia 7" /></div>
+            <div class="gallery-item" data-src="images/Galareja4.jpg"><img src="images/Galareja4.jpg" alt="Realizácia 8" /></div>
+            <div class="gallery-item" data-src="images/Galareja5.jpg"><img src="images/Galareja5.jpg" alt="Realizácia 9" /></div>
+            <div class="gallery-item" data-src="images/Galareja6.jpg"><img src="images/Galareja6.jpg" alt="Realizácia 10" /></div>
+            <div class="gallery-item" data-src="images/Galareja7.jpg"><img src="images/Galareja7.jpg" alt="Realizácia 11" /></div>
+            <div class="gallery-item" data-src="images/Galareja8.jpg"><img src="images/Galareja8.jpg" alt="Realizácia 12" /></div>
           </div>
         </div>
       </section>
@@ -244,26 +255,6 @@
         </div>
       </section>
 
-       <!-- Секція про компанію: поєднує коротку історію компанії з фоновим
-         зображенням CSS як візуальним доповненням. -->
-       <section class="about section reveal">
-        <div class="container about-layout">
-          <div class="about-content">
-            <h2>O nás</h2>
-            <div class="about-name">Ivan Shetelia – IS</div>
-            <p>
-              Už 10 rokov sa venujeme strojovým a ručným omietkam, stierkovaniu a rekonštrukciám. Sme spoľahlivý tím, ktorý si zakladá na kvalite, precíznosti a spokojnosti zákazníkov.
-            </p>
-            <p>
-              Každý projekt berieme zodpovedne, bez ohľadu na veľkosť. Dôležité pre nás je detail, čistota a konzistentná práca po celú dobu realizácie.
-            </p>
-            <a href="#kontakt" class="btn btn-primary" aria-label="Viac o nás">Viac o nás →</a>
-          </div>
-
-          <div class="about-image" aria-label="Pracovník na stavbe" role="img"></div>
-        </div>
-      </section>
-
        <!-- Секція матеріалів: назви брендів позначають постачальників матеріалів,
          які використовує компанія. -->
        <section class="materials section reveal">
@@ -300,14 +291,8 @@
             </div>
           </div>
 
-          <div class="map-wrap" aria-label="Mapa Slovenska">
-            <svg class="map-svg" viewBox="0 0 542 346" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M89 85l54 32 36-12 32 16 26 25 17 20 12 34 30 16 20 22 32 9 35 21 13 12-24 30-25 19-32 11-46-1-34-17-25-28-29-15-35-10-25-20-34-25-15-25 18-35 24-41 18-22 6-20 17-4 14-13-7-19-22-7-15 8m77 7l5 28 35 14 19-6 16 5 18-28 2-32-20-21-34 2-25 11-14 16-5 15 3 16z" fill="#e9edf1" stroke="#c8ced5" stroke-width="1.5"/>
-              <g>
-                <circle class="map-pin" cx="245" cy="182" r="7"/>
-                <circle class="map-pin" cx="245" cy="182" r="14" fill="none" stroke="rgba(245,197,66,0.5)"/>
-              </g>
-            </svg>
+          <div class="map-wrap">
+            <img class="map-image" src="images/slovensko.png" alt="Mapa Slovenska s vyznačenými mestami" />
           </div>
         </div>
       </section>
@@ -336,6 +321,8 @@
           </div>
 
           <form class="contact-form" novalidate aria-label="Kontaktný formulár">
+            <input type="hidden" name="_subject" value="Nová správa z webovej stránky" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden />
             <div class="field-group">
               <label for="name">Vaše meno</label>
               <input id="name" name="name" type="text" aria-label="Vaše meno" required />
@@ -380,7 +367,6 @@
             <a href="#home">Domov</a>
             <a href="#sluzby">Služby</a>
             <a href="#realizacie">Realizácie</a>
-            <a href="#o-nas">O nás</a>
             <a href="#oblast-pusobenia">Oblasti pôsobenia</a>
             <a href="#kontakt">Kontakt</a>
           </nav>

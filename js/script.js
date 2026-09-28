@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Галерея містить фотографії реалізацій. Кожна плитка зберігає велике
   // джерело в data-src для показу всередині спільного lightbox.
-  const galleryItems = [...document.querySelectorAll('.gallery-item')];
+  const galleryItems = [...document.querySelectorAll('.gallery-item:not(.gallery-video)')];
   const lightbox = document.querySelector('.lightbox');
   const lightboxImage = document.querySelector('.lightbox-image');
   const lightboxClose = document.querySelector('.lightbox-close');
@@ -168,7 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   galleryTrigger?.addEventListener('click', (event) => {
     event.preventDefault();
-    openLightbox(0);
+    const featuredPhotoIndex = galleryItems.findIndex((item) => item.dataset.featured === 'true');
+    openLightbox(featuredPhotoIndex >= 0 ? featuredPhotoIndex : 0);
   });
 
   lightboxClose?.addEventListener('click', closeLightbox);
@@ -203,8 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Перевіряємо одне поле, оновлюємо повідомлення про помилку та повертаємо
-  // інформацію про наявність корисного вмісту. Зараз форма перевіряє лише
-  // обов'язковість полів; надсилання на сервер не входить до цієї демонстрації.
+  // інформацію про наявність корисного вмісту.
   const validateField = (field) => {
     const errorEl = field.closest('.field-group').querySelector('.form-error');
     const value = field.value.trim();
@@ -227,35 +227,45 @@ document.addEventListener('DOMContentLoaded', () => {
     field?.addEventListener('input', () => validateField(field));
   });
 
-  // Сценарій надсилання є демонстрацією frontend-взаємодії: коректні дані
-  // показують короткий стан завантаження та повідомлення про успіх, після чого
-  // форма відновлюється для повторного використання. preventDefault не дає
-  // статичній сторінці переходити на іншу адресу або перезавантажуватися.
-  contactForm?.addEventListener('submit', (event) => {
+  contactForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const fields = Object.values(formFields);
     const valid = fields.every((field) => validateField(field));
+    const status = contactForm.querySelector('.form-success');
 
     if (!valid) {
-      contactForm.querySelector('.form-success').classList.remove('visible');
+      status.classList.remove('visible');
       return;
     }
 
     const submitButton = contactForm.querySelector('.btn-submit');
+    status.classList.remove('visible', 'is-error');
     submitButton.disabled = true;
     submitButton.classList.add('loading');
     submitButton.textContent = 'Odosielam...';
 
-    setTimeout(() => {
-      submitButton.textContent = 'Odoslané';
-      contactForm.querySelector('.form-success').classList.add('visible');
-      contactForm.reset();
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/master.omietky@gmail.com', {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(contactForm))
+      });
+      const result = await response.json();
 
-      setTimeout(() => {
-        submitButton.disabled = false;
-        submitButton.classList.remove('loading');
-        submitButton.textContent = 'Odoslať správu';
-      }, 1000);
-    }, 900);
+      if (!response.ok || String(result.success).toLowerCase() !== 'true') {
+        throw new Error('Form submission failed');
+      }
+
+      submitButton.textContent = 'Odoslané';
+      status.textContent = 'Ďakujeme, vaša správa bola odoslaná.';
+      status.classList.add('visible');
+      contactForm.reset();
+    } catch {
+      status.textContent = 'Správu sa nepodarilo odoslať. Skúste to znova alebo nám napíšte na master.omietky@gmail.com.';
+      status.classList.add('visible', 'is-error');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.classList.remove('loading');
+      submitButton.textContent = 'Odoslať správu';
+    }
   });
 });

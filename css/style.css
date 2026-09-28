@@ -558,6 +558,12 @@ p {
   transition: transform 0.3s ease;
 }
 
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .gallery-item:hover img {
   transform: scale(1.04);
 }
@@ -567,6 +573,7 @@ p {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.18));
+  pointer-events: none;
 }
 
 .why-us {
@@ -642,44 +649,6 @@ p {
   line-height: 1.18;
   color: var(--color-mid);
   letter-spacing: -0.04em;
-}
-
-.about {
-  /* ------------------------------- Про нас ------------------------------- */
-  background: var(--color-light);
-}
-
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 36px;
-  align-items: center;
-}
-
-.about-content h2 {
-  font-size: clamp(2rem, 3vw, 3.2rem);
-  color: var(--color-mid);
-  margin-bottom: 18px;
-}
-
-.about-content .about-name {
-  font-size: 1.18rem;
-  color: var(--color-mid);
-  margin-bottom: 14px;
-  font-weight: 700;
-}
-
-.about-content p {
-  color: rgba(23, 27, 32, 0.72);
-  margin-bottom: 18px;
-}
-
-.about-image {
-  position: relative;
-  overflow: hidden;
-  min-height: 460px;
-  background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-  box-shadow: var(--shadow);
 }
 
 .materials {
@@ -787,9 +756,9 @@ p {
   padding: 24px;
 }
 
-.map-svg {
+.map-image {
   width: 100%;
-  max-width: 440px;
+  max-width: 560px;
   height: auto;
 }
 
@@ -803,7 +772,7 @@ p {
   /* ------------------------------- Контакти ------------------------------- */
   position: relative;
   background: linear-gradient(90deg, rgba(7, 17, 24, 0.78), rgba(7, 17, 24, 0.45)),
-    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    url('../images/backgraund.png') center/cover no-repeat;
   color: var(--color-white);
 }
 
@@ -936,6 +905,10 @@ p {
 
 .form-success.visible {
   display: block;
+}
+
+.form-success.is-error {
+  color: #ffb3b3;
 }
 
 .site-footer {
