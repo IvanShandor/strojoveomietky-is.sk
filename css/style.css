@@ -1,5 +1,9 @@
+/* Зовнішній шрифт для всієї візуальної системи. Та сама родина також
+  підключена в HTML, щоб браузер почав завантаження якомога раніше. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
+/* Центральні змінні дизайну. Зміна значення тут узгоджено оновлює пов'язані
+  компоненти без пошуку по кожному селектору. */
 :root {
   --color-dark: #071118;
   --color-mid: #101820;
@@ -16,16 +20,19 @@
 }
 
 * {
+  /* Залишаємо відступи та рамки всередині заданих розмірів. */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
+  /* Робимо переходи за якорями та програмну прокрутку плавними. */
   scroll-behavior: smooth;
 }
 
 body {
+  /* Базова типографіка, фон і колір тексту для всієї сторінки. */
   font-family: 'Inter', sans-serif;
   background: var(--color-light);
   color: var(--color-text);
@@ -83,6 +90,7 @@ p {
 }
 
 .site-header {
+  /* ------------------------------ Шапка ------------------------------ */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -242,6 +250,8 @@ p {
 }
 
 .nav-toggle {
+    /* Керування меню лише для mobile; на desktop повна навігація залишається
+      видимою. */
   display: none;
   background: transparent;
   border: none;
@@ -277,6 +287,7 @@ p {
 }
 
 .hero {
+  /* ------------------------------- Hero -------------------------------- */
   position: relative;
   min-height: 520px;
   background: linear-gradient(90deg, rgba(7, 17, 24, 0.74), rgba(7, 17, 24, 0.38)),
@@ -375,6 +386,7 @@ p {
 }
 
 .section-title {
+  /* ---------------------- Спільні заголовки секцій ---------------------- */
   margin-bottom: 32px;
 }
 
@@ -392,6 +404,7 @@ p {
 }
 
 .services {
+  /* ------------------------------ Послуги ------------------------------ */
   background: var(--color-light);
 }
 
@@ -448,8 +461,10 @@ p {
 }
 
 .projects {
+  /* ---------------------------- Реалізації ---------------------------- */
   background: linear-gradient(180deg, #0f1f2b 0%, #071118 100%);
   color: var(--color-white);
+  overflow: hidden;
 }
 
 .projects .section-title h2,
@@ -461,17 +476,16 @@ p {
 
 .project-layout {
   display: grid;
-  grid-template-columns: 0.95fr 1.6fr;
-  gap: 32px;
-  align-items: end;
+  grid-template-columns: minmax(230px, 0.7fr) minmax(0, 1.7fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
 }
 
 .project-intro {
   display: flex;
   flex-direction: column;
-  align-self: stretch;
   justify-content: flex-start;
-  padding-top: 8px;
+  max-width: 360px;
 }
 
 .project-intro .eyebrow {
@@ -479,9 +493,9 @@ p {
 }
 
 .project-intro h2 {
-  font-size: clamp(2rem, 3vw, 3.1rem);
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
   letter-spacing: -0.06em;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   line-height: 1;
 }
 
@@ -503,15 +517,20 @@ p {
 }
 
 .project-gallery {
+  /* Велике фото займає дві висоти, а три менші фото формують праву колонку.
+     Фіксована висота не дає галереї розтягувати всю секцію. */
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 18px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: 12px;
+  height: 330px;
 }
 
 .gallery-stack {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  min-height: 0;
 }
 
 .gallery-item {
@@ -519,13 +538,17 @@ p {
   overflow: hidden;
   cursor: pointer;
   background: #dfe6eb;
-  min-height: 210px;
+  min-height: 0;
   border-radius: 0;
   box-shadow: var(--shadow);
 }
 
 .gallery-item.large {
-  min-height: 380px;
+  min-height: 0;
+}
+
+.gallery-stack .gallery-item:last-child {
+  grid-column: 1 / -1;
 }
 
 .gallery-item img {
@@ -547,6 +570,7 @@ p {
 }
 
 .why-us {
+  /* ---------------------------- Переваги ---------------------------- */
   background: #edeef0;
 }
 
@@ -621,6 +645,7 @@ p {
 }
 
 .about {
+  /* ------------------------------- Про нас ------------------------------- */
   background: var(--color-light);
 }
 
@@ -658,6 +683,7 @@ p {
 }
 
 .materials {
+  /* ------------------------------ Матеріали ----------------------------- */
   background: #f1f3f4;
 }
 
@@ -709,6 +735,7 @@ p {
 }
 
 .coverage {
+  /* ----------------------------- Карта роботи ---------------------------- */
   background: #f5f5f5;
 }
 
@@ -773,6 +800,7 @@ p {
 }
 
 .contact {
+  /* ------------------------------- Контакти ------------------------------- */
   position: relative;
   background: linear-gradient(90deg, rgba(7, 17, 24, 0.78), rgba(7, 17, 24, 0.45)),
     url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
@@ -911,6 +939,7 @@ p {
 }
 
 .site-footer {
+  /* ------------------------------- Footer ------------------------------- */
   background: #071118;
   color: rgba(255, 255, 255, 0.8);
   padding-top: 22px;
@@ -991,6 +1020,7 @@ p {
 }
 
 .back-to-top {
+  /* -------------------------- Службові елементи -------------------------- */
   position: fixed;
   right: 30px;
   bottom: 26px;
@@ -1015,6 +1045,7 @@ p {
 }
 
 .lightbox {
+  /* ------------------------------- Lightbox ------------------------------ */
   position: fixed;
   inset: 0;
   background: rgba(5, 10, 14, 0.92);
@@ -1087,6 +1118,8 @@ p {
   transform: translateY(0);
 }
 
+/* Планшет і невеликий ноутбук: звужуємо колонки, зберігаючи основну
+  візуальну ієрархію desktop-композиції. */
 @media (max-width: 1100px) {
   .service-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1100,11 +1133,21 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .project-intro {
+    max-width: 620px;
+  }
+
+  .project-gallery {
+    height: 300px;
+  }
+
   .main-nav {
     gap: 20px;
   }
 }
 
+/* Вузький планшет: складаємо основні секції вертикально та показуємо
+  мобільне меню. */
 @media (max-width: 820px) {
   .header-inner {
     min-height: 74px;
@@ -1165,10 +1208,13 @@ p {
 
   .project-gallery {
     grid-template-columns: 1fr;
+    height: auto;
   }
 
   .gallery-stack {
     grid-template-columns: 1fr 1fr;
+    min-height: 0;
+    grid-template-rows: repeat(2, 140px);
   }
 
   .service-grid {
@@ -1182,6 +1228,8 @@ p {
   }
 }
 
+/* Телефон: зменшуємо відступи та складаємо елементи керування і галерею,
+  щоб сторінка залишалася читабельною без завеликих вертикальних блоків. */
 @media (max-width: 520px) {
   .container {
     width: min(var(--container), calc(100% - 28px));
@@ -1228,6 +1276,19 @@ p {
   .feature-grid,
   .gallery-stack {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-stack {
+    grid-template-rows: repeat(3, 160px);
+    gap: 14px;
+  }
+
+  .gallery-item.large {
+    min-height: 210px;
+  }
+
+  .gallery-stack .gallery-item:last-child {
+    grid-column: auto;
   }
 
   .project-intro .btn-ghost {

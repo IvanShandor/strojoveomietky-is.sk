@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="sk">
   <head>
+        <!-- Базові метадані забезпечують правильне кодування, адаптивність,
+          індексацію пошуковими системами та назву у вкладці браузера. -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -11,9 +13,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <!-- Усі спеціальні візуальні правила сторінки зберігаються в одному
+          зовнішньому файлі стилів. -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+        <!-- Фіксована шапка сайту: бренд, навігація для desktop, контактна дія
+          та компактний перемикач мобільної навігації. -->
     <header class="site-header">
       <div class="container header-inner">
         <a href="#home" class="brand" aria-label="Ivan Shetelia hlavná stránka">
@@ -26,6 +32,7 @@
           </span>
         </a>
 
+        <!-- Це id використовується в aria-controls мобільного перемикача. -->
         <nav id="mobile-nav" class="main-nav" aria-label="Hlavná navigácia">
           <a href="#home" class="nav-link active">Domov</a>
           <a href="#sluzby" class="nav-link">Služby</a>
@@ -40,7 +47,9 @@
           <a href="#kontakt" class="btn btn-primary" aria-label="Zavolať">Zavolať</a>
         </div>
 
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvoriť menu">
+             <!-- JavaScript змінює aria-expanded і клас is-open, коли цією кнопкою
+               користуються на вузьких екранах. -->
+           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvoriť menu">
           <span></span>
           <span></span>
           <span></span>
@@ -48,7 +57,11 @@
       </div>
     </header>
 
-    <main>
+            <!-- Основний вміст поділено на незалежні секції. Посилання навігації
+              ведуть до секцій, які мають атрибут id. -->
+        <main>
+       <!-- Hero-секція: перший екран повідомляє про послугу, досвід, локацію
+         та дві основні контактні дії. -->
       <section id="home" class="hero reveal">
         <div class="container hero-inner">
           <div class="hero-copy">
@@ -68,7 +81,9 @@
         </div>
       </section>
 
-      <section id="sluzby" class="services section reveal">
+       <!-- Секція послуг: кожна article є повторно використовуваною карткою
+         з ілюстративним зображенням, акцентною лінією та назвою послуги. -->
+       <section id="sluzby" class="services section reveal">
         <div class="container">
           <div class="section-title">
             <div class="eyebrow">Naše služby</div>
@@ -77,7 +92,7 @@
 
           <div class="service-grid">
             <article class="service-card">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Strojové vápenno-cementové omietky" loading="lazy" />
+              <img src="images/Strojové vápenno-cementové omietky1.jpg" alt="Strojové vápenno-cementové omietky" loading="lazy" />
               <div class="service-body">
                 <div class="accent"></div>
                 <h3>Strojové vápenno-cementové omietky</h3>
@@ -85,7 +100,7 @@
             </article>
 
             <article class="service-card">
-              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80" alt="Sadrové omietky" loading="lazy" />
+              <img src="images/Sadrové omietky.jpg" alt="Sadrové omietky" loading="lazy" />
               <div class="service-body">
                 <div class="accent"></div>
                 <h3>Sadrové omietky</h3>
@@ -93,7 +108,7 @@
             </article>
 
             <article class="service-card">
-              <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80" alt="Štukové omietky" loading="lazy" />
+              <img src="images/Štukové omietky.jpg" alt="Štukové omietky" loading="lazy" />
               <div class="service-body">
                 <div class="accent"></div>
                 <h3>Štukové omietky</h3>
@@ -101,7 +116,7 @@
             </article>
 
             <article class="service-card">
-              <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=80" alt="Stierkovanie" loading="lazy" />
+              <img src="images/Stierkovanie.jpg" alt="Stierkovanie" loading="lazy" />
               <div class="service-body">
                 <div class="accent"></div>
                 <h3>Stierkovanie</h3>
@@ -109,7 +124,7 @@
             </article>
 
             <article class="service-card">
-              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Lepenie perlinky a lepidlo na hladké steny" loading="lazy" />
+              <img src="images/Lepenie perlinky + lepidlo na hladké steny a príprava (YTong).jpg" alt="Lepenie perlinky a lepidlo na hladké steny" loading="lazy" />
               <div class="service-body">
                 <div class="accent"></div>
                 <h3>Lepenie perlinky + lepidlo na hladké steny a príprava (YTong)</h3>
@@ -117,7 +132,7 @@
             </article>
 
             <article class="service-card">
-              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Finálne maľovanie interiérov" loading="lazy" />
+              <img src="images/Finálne maľovanie interiérov.jpg" alt="Finálne maľovanie interiérov" loading="lazy" />
               <div class="service-body">
                 <div class="accent"></div>
                 <h3>Finálne maľovanie interiérov</h3>
@@ -125,7 +140,7 @@
             </article>
 
             <article class="service-card">
-              <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" alt="Rekonštrukcie domov a bytov" loading="lazy" />
+              <img src="images/Rekonštrukcie domov a bytov.jpg" alt="Rekonštrukcie domov a bytov" loading="lazy" />
               <div class="service-body">
                 <div class="accent"></div>
                 <h3>Rekonštrukcie domov a bytov</h3>
@@ -135,7 +150,9 @@
         </div>
       </section>
 
-      <section id="realizacie" class="projects section reveal">
+       <!-- Секція реалізацій: велике фото та три додаткові фотографії
+         показують приклади виконаних проєктів. -->
+       <section id="realizacie" class="projects section reveal">
         <div class="container project-layout">
           <div class="project-intro">
             <div class="eyebrow">Naše realizácie</div>
@@ -143,33 +160,34 @@
             <p>
               Pozrite si fotografie z našich dokončených projektov. Pridávame priebežne ďalšie realizácie.
             </p>
-            <a href="#kontakt" class="btn btn-ghost" aria-label="Zobraziť všetky realizácie">Zobraziť všetky realizácie →</a>
+            <a href="#realizacie" class="btn btn-ghost gallery-trigger" aria-label="Zobraziť všetky realizácie">Zobraziť všetky realizácie →</a>
           </div>
 
+          <!-- Кожен елемент галереї доступний з клавіатури та поводиться як
+            кнопка. data-src зберігає джерело для збільшеного перегляду. -->
           <div class="project-gallery" aria-label="Galéria realizácií">
-            <div class="gallery-item large" data-src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 1">
-              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Vnútorná priehrada pri rekonštrukcii bytu" loading="lazy" />
+            <div class="gallery-item large" data-src="images/Ukážky2.jpg" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 1">
+              <img src="images/Ukážky2.jpg" alt="Interiér po rekonštrukcii" loading="lazy" />
             </div>
 
             <div class="gallery-stack">
-              <div class="gallery-item" data-src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1000&q=80" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 2">
-                <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1000&q=80" alt="Pracovný priestor po omietke" loading="lazy" />
+              <div class="gallery-item" data-src="images/Ukážky3.jpg" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 2">
+                <img src="images/Ukážky3.jpg" alt="Exteriér domu po rekonštrukcii" loading="lazy" />
               </div>
-              <div class="gallery-item" data-src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 3">
-                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80" alt="Miestnosť po dokončení omietok" loading="lazy" />
+              <div class="gallery-item" data-src="images/Ukážky4.jpg" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 3">
+                <img src="images/Ukážky4.jpg" alt="Kúpeľňa po dokončení" loading="lazy" />
               </div>
-              <div class="gallery-item" data-src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=80" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 4">
-                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=80" alt="Vymaľovaná stena v interiéri" loading="lazy" />
-              </div>
-              <div class="gallery-item" data-src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1000&q=80" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 5">
-                <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1000&q=80" alt="Rekonštrukcia obytného priestoru" loading="lazy" />
+              <div class="gallery-item" data-src="images/Ukážky5.jpg" tabindex="0" role="button" aria-label="Otvoriť fotografiu realizácie 4">
+                <img src="images/Ukážky5.jpg" alt="Schodisko po omietkach" loading="lazy" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="why-us section reveal">
+       <!-- Секція довіри: короткі тези підсумовують досвід, матеріали, якість
+         роботи, територію обслуговування та процес отримання пропозиції. -->
+       <section class="why-us section reveal">
         <div class="container">
           <div class="why-header">
             <div class="section-title">
@@ -226,7 +244,9 @@
         </div>
       </section>
 
-      <section class="about section reveal">
+       <!-- Секція про компанію: поєднує коротку історію компанії з фоновим
+         зображенням CSS як візуальним доповненням. -->
+       <section class="about section reveal">
         <div class="container about-layout">
           <div class="about-content">
             <h2>O nás</h2>
@@ -244,7 +264,9 @@
         </div>
       </section>
 
-      <section class="materials section reveal">
+       <!-- Секція матеріалів: назви брендів позначають постачальників матеріалів,
+         які використовує компанія. -->
+       <section class="materials section reveal">
         <div class="container">
           <div class="materials-header">
             <h2>Používame kvalitné materiály</h2>
@@ -258,7 +280,9 @@
         </div>
       </section>
 
-      <section id="oblast-pusobenia" class="coverage section reveal">
+       <!-- Секція покриття: список територій доповнений декоративною inline-SVG
+         картою та виділеним маркером розташування. -->
+       <section id="oblast-pusobenia" class="coverage section reveal">
         <div class="container coverage-grid">
           <div class="coverage-copy">
             <div class="section-title">
@@ -288,7 +312,10 @@
         </div>
       </section>
 
-      <section id="kontakt" class="contact section reveal">
+       <!-- Секція контактів: прямі посилання на телефон та email розташовані
+         поруч із формою перевірки на стороні клієнта. Форма демонструє
+         взаємодію, але наразі не надсилає дані на backend. -->
+       <section id="kontakt" class="contact section reveal">
         <div class="container contact-wrap">
           <div class="contact-copy">
             <div class="eyebrow">Kontakt</div>
@@ -334,7 +361,9 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+            <!-- Footer повторює основну навігацію, ідентичність, соціальні посилання
+              та правові посилання, щоб відвідувач міг продовжити перегляд знизу. -->
+        <footer class="site-footer">
       <div class="container">
         <div class="footer-top">
           <div class="footer-brand">
@@ -372,8 +401,11 @@
       </div>
     </footer>
 
-    <button class="back-to-top" type="button" aria-label="Späť hore">↑</button>
+        <!-- Цей елемент прихований, доки JavaScript не визначить достатню прокрутку. -->
+        <button class="back-to-top" type="button" aria-label="Späť hore">↑</button>
 
+            <!-- Спільний lightbox для всіх елементів галереї. JavaScript перемикає
+              видимість фото або відео та оновлює попередню/наступну позицію. -->
     <div class="lightbox" aria-hidden="true">
       <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Zväčšená fotografia realizácie">
         <button class="lightbox-close" type="button" aria-label="Zavrieť okno">×</button>
@@ -383,6 +415,7 @@
       </div>
     </div>
 
+    <!-- Підключаємо код взаємодії наприкінці, коли розмітка вже доступна. -->
     <script src="js/script.js"></script>
   </body>
 </html>
