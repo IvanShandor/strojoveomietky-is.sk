@@ -410,7 +410,7 @@ p {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
 }
 
@@ -1094,10 +1094,6 @@ p {
 /* Планшет і невеликий ноутбук: звужуємо колонки, зберігаючи основну
   візуальну ієрархію desktop-композиції. */
 @media (max-width: 1100px) {
-  .service-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .project-layout,
   .coverage-grid,
   .contact-wrap,
